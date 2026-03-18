@@ -52,8 +52,8 @@ const getCareTypeColor = (type: string): string => {
     return "#4A148C";
   }
 
-  // Fallback to brand teal if unknown
-  return "#2A7F7F";
+  // Fallback to brand primary (royal blue) if unknown
+  return "#1d4ed8";
 };
 
 function truncateToWords(text: string, maxWords: number): string {

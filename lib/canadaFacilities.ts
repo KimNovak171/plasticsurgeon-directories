@@ -147,9 +147,12 @@ function transformCanadaFacilities(
     const addressLine1 = addressParts[0] ?? f.address ?? "";
     const addressLine2 =
       addressParts.length > 1 ? addressParts.slice(1).join(", ") : undefined;
+    const fullAddress = (f.address ?? "").trim();
     const mapsUrl = f.place_id
       ? `https://search.google.com/local/reviews?placeid=${f.place_id}&q=*&authuser=0&hl=en&gl=CA`
-      : undefined;
+      : fullAddress
+        ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`
+        : undefined;
     return {
       id,
       name: f.name,

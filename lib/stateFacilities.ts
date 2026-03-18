@@ -351,10 +351,12 @@ function transformAlternateFormatFacilities(
     const addressParts = ((f.address ?? "").trim() || "").split(",").map((s) => s.trim());
     const addressLine1 = addressParts[0] ?? "";
     const addressLine2 = addressParts.length > 1 ? addressParts.slice(1).join(", ") : undefined;
-    const mapsUrl =
-      f.place_id ?
-        `https://search.google.com/local/reviews?placeid=${f.place_id}&q=*&authuser=0&hl=en&gl=US`
-      : undefined;
+    const fullAddress = (f.address ?? "").trim();
+    const mapsUrl = f.place_id
+      ? `https://search.google.com/local/reviews?placeid=${f.place_id}&q=*&authuser=0&hl=en&gl=US`
+      : fullAddress
+        ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`
+        : undefined;
     return {
       id,
       name: (f.name ?? "").trim() || "Unnamed",

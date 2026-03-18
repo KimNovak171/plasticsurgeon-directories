@@ -13,13 +13,13 @@
 
   /* Brand palette – exact hex codes */
   --color-navy: #2d2d2d; /* Primary: charcoal */
-  --color-teal: #e85d04; /* Accent: orange */
-  --color-gold: #e85d04; /* Accent: orange */
+  --color-teal: #1d4ed8; /* Accent: royal blue */
+  --color-gold: #1d4ed8; /* Accent: royal blue */
 
   /* Supporting tints/shades derived from brand colors */
   --color-navy-soft: #3a3a3a;
-  --color-teal-soft: #ff7a2a;
-  --color-gold-soft: #ff7a2a;
+  --color-teal-soft: #2563eb;
+  --color-gold-soft: #2563eb;
 
   /* Neutral surface colors */
   --color-surface: #ffffff;
