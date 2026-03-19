@@ -39,7 +39,10 @@ const saskatchewanData = {
   province: "Saskatchewan",
   facilities: loadCanadaProvinceFacilities("saskatchewan_facilities.json"),
 } as any;
-const manitobaData = { province: "Manitoba", facilities: [] as any[] } as any;
+const manitobaData = {
+  province: "Manitoba",
+  facilities: loadCanadaProvinceFacilities("manitoba_facilities.json"),
+} as any;
 const ontarioData = {
   province: "Ontario",
   facilities: loadCanadaProvinceFacilities("ontario_facilities.json"),
