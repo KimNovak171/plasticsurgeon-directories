@@ -58,36 +58,36 @@ export default async function Home() {
   };
 
   return (
-    <div className="bg-background text-foreground">
+    <div className="bg-surface text-foreground">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <section className="bg-gradient-to-b from-navy via-navy-soft to-background">
+      <section className="bg-surface">
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-12 sm:px-6 lg:py-16 lg:px-8">
-          <div className="space-y-6 text-surface">
-            <p className="inline-flex rounded-full bg-navy-soft/80 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-gold-soft ring-1 ring-gold-soft/40">
+          <div className="space-y-6 text-foreground">
+            <p className="inline-flex rounded-full border border-teal bg-surface px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-foreground">
               speech therapy Directories
             </p>
             <h1 className="text-balance text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
               Find Trusted speech pathologists — State by State
             </h1>
-            <p className="max-w-2xl text-balance text-sm sm:text-base text-surface/80">
+            <p className="max-w-2xl text-balance text-sm sm:text-base text-foreground/80">
               Verified speech pathologists and services across the US and
               Canada. Every practice rated 3★ or higher on Google Maps.
             </p>
           </div>
 
-          <div className="w-full rounded-2xl border-2 border-gold/40 bg-navy-soft/95 p-6 shadow-xl shadow-navy/20 ring-1 ring-gold/30">
-            <h2 className="text-xl font-semibold text-white">
+          <div className="w-full rounded-2xl border-2 border-teal/40 bg-surface p-6 shadow-xl shadow-navy/20 ring-1 ring-teal/30">
+            <h2 className="text-xl font-semibold text-foreground">
               Start with a state directory
             </h2>
-            <p className="mt-2 text-sm text-white/90">
+            <p className="mt-2 text-sm text-foreground/90">
               Browse verified speech pathologists by state, then drill down by
               city to compare services and contact details.
             </p>
 
-            <p className="mt-2 text-sm font-medium text-white">
+            <p className="mt-2 text-sm font-medium text-foreground">
               {usStatesSorted.map((s) => s.stateName).join(" • ")}
             </p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -105,7 +105,7 @@ export default async function Home() {
               ))}
             </div>
 
-            <p className="mt-4 text-sm font-medium text-white">
+            <p className="mt-4 text-sm font-medium text-foreground">
               Each state has its own dedicated directory — specific
               practices, specific cities, built for that state only.
             </p>
@@ -144,8 +144,8 @@ export default async function Home() {
           .slice(0, 6);
         if (allFeatured.length === 0) return null;
         return (
-          <section className="mx-auto max-w-6xl rounded-2xl border-2 border-teal/20 bg-teal/5 px-4 py-10 sm:px-6 lg:px-8">
-            <h2 className="text-xl font-semibold text-navy">
+          <section className="mx-auto max-w-6xl rounded-2xl border-2 border-teal/20 bg-surface px-4 py-10 sm:px-6 lg:px-8">
+            <h2 className="text-xl font-semibold text-foreground">
               Featured speech pathologists
             </h2>
             <p className="mt-1 text-sm text-slate-600">
@@ -161,7 +161,7 @@ export default async function Home() {
         );
       })()}
 
-      <p className="mx-auto max-w-2xl rounded-lg border-2 border-teal/40 bg-teal/10 px-4 py-3 text-center text-sm text-slate-700">
+      <p className="mx-auto max-w-2xl rounded-lg border-2 border-teal/40 bg-surface px-4 py-3 text-center text-sm text-slate-700">
         Auto practice owners: Get featured at the top of your city listing.{" "}
         <Link
           href="/advertise"
@@ -179,13 +179,13 @@ export default async function Home() {
         .
       </p>
 
-      <section className="mt-8 border-y-2 border-teal/30 bg-teal/10">
+      <section className="mt-8 border-y-2 border-teal/30 bg-surface">
         <div className="mx-auto grid max-w-6xl gap-4 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           <div className="rounded-xl border-2 border-teal/30 bg-surface p-4 text-center shadow-sm">
             <p className="text-xs font-semibold uppercase tracking-wide text-teal">
               Verified speech pathologists
             </p>
-            <p className="mt-2 text-2xl font-semibold text-navy">
+            <p className="mt-2 text-2xl font-semibold text-foreground">
               {globalStats.totalFacilities.toLocaleString()}
             </p>
           </div>
@@ -193,7 +193,7 @@ export default async function Home() {
             <p className="text-xs font-semibold uppercase tracking-wide text-teal">
               Cities Covered
             </p>
-            <p className="mt-2 text-2xl font-semibold text-navy">
+            <p className="mt-2 text-2xl font-semibold text-foreground">
               {globalStats.totalCities.toLocaleString()}
             </p>
           </div>
@@ -201,7 +201,7 @@ export default async function Home() {
             <p className="text-xs font-semibold uppercase tracking-wide text-teal">
               Average Rating
             </p>
-            <p className="mt-2 text-2xl font-semibold text-navy">
+            <p className="mt-2 text-2xl font-semibold text-foreground">
               {globalStats.averageRating != null
                 ? `${globalStats.averageRating}★`
                 : "—"}
@@ -211,14 +211,14 @@ export default async function Home() {
             <p className="text-xs font-semibold uppercase tracking-wide text-teal">
               Quality Standard
             </p>
-            <p className="mt-2 text-2xl font-semibold text-navy">3★ Minimum</p>
+            <p className="mt-2 text-2xl font-semibold text-foreground">3★ Minimum</p>
           </div>
         </div>
       </section>
 
-      <section className="bg-background">
+      <section className="bg-surface">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-semibold text-navy border-b-2 border-teal/50 pb-2 inline-block">
+          <h2 className="text-2xl font-semibold text-foreground border-b-2 border-teal/50 pb-2 inline-block">
             How It Works
           </h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -226,7 +226,7 @@ export default async function Home() {
               <p className="text-2xl" aria-hidden="true">
                 1️⃣
               </p>
-              <h3 className="mt-3 text-lg font-semibold text-navy">
+              <h3 className="mt-3 text-lg font-semibold text-foreground">
                 Choose your state
               </h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -238,7 +238,7 @@ export default async function Home() {
               <p className="text-2xl" aria-hidden="true">
                 2️⃣
               </p>
-              <h3 className="mt-3 text-lg font-semibold text-navy">
+              <h3 className="mt-3 text-lg font-semibold text-foreground">
                 Browse by city
               </h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -250,7 +250,7 @@ export default async function Home() {
               <p className="text-2xl" aria-hidden="true">
                 3️⃣
               </p>
-              <h3 className="mt-3 text-lg font-semibold text-navy">
+              <h3 className="mt-3 text-lg font-semibold text-foreground">
                 Contact speech pathologists directly
               </h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -262,14 +262,14 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="bg-background border-y border-navy/10">
+      <section className="bg-surface border-y border-navy/10">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-semibold text-navy border-b-2 border-teal/50 pb-2 inline-block">
+          <h2 className="text-2xl font-semibold text-foreground border-b-2 border-teal/50 pb-2 inline-block">
             Why Trust Us
           </h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <article className="rounded-xl border-l-4 border-navy border border-surface-muted bg-surface p-5 shadow-sm">
-              <h3 className="text-lg font-semibold text-navy">
+              <h3 className="text-lg font-semibold text-foreground">
                 Google Verified Data
               </h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -278,7 +278,7 @@ export default async function Home() {
               </p>
             </article>
             <article className="rounded-xl border-l-4 border-navy border border-surface-muted bg-surface p-5 shadow-sm">
-              <h3 className="text-lg font-semibold text-navy">
+              <h3 className="text-lg font-semibold text-foreground">
                 Quality Filtered
               </h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -286,7 +286,7 @@ export default async function Home() {
               </p>
             </article>
             <article className="rounded-xl border-l-4 border-navy border border-surface-muted bg-surface p-5 shadow-sm">
-              <h3 className="text-lg font-semibold text-navy">
+              <h3 className="text-lg font-semibold text-foreground">
                 Always Free to Browse
               </h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -298,10 +298,10 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="bg-background">
+      <section className="bg-surface">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-          <div className="rounded-2xl border border-gold/50 bg-surface-muted p-6 text-foreground ring-1 ring-gold/30">
-            <h2 className="text-2xl font-semibold text-gold-soft">
+          <div className="rounded-2xl border border-gold/50 bg-surface p-6 text-foreground ring-1 ring-gold/30">
+            <h2 className="text-2xl font-semibold text-foreground">
               Are You an speech pathologist Owner?
             </h2>
             <p className="mt-3 max-w-3xl text-sm text-foreground/90">
@@ -311,7 +311,7 @@ export default async function Home() {
             <div className="mt-5">
               <Link
                 href="/advertise"
-                className="inline-flex items-center justify-center rounded-full bg-gold px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-navy shadow-sm transition hover:bg-gold-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+                className="inline-flex items-center justify-center rounded-full bg-gold px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-white shadow-sm transition hover:bg-gold-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Learn About Featured Listings
               </Link>
