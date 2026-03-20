@@ -30,7 +30,7 @@ export default function RegionPage({ params }: RegionPageProps) {
     <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
       <div className="space-y-4">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-teal">
-          Speech Therapy Shops by Region
+          Speech Therapy Practices by Region
         </p>
         <h1 className="text-3xl font-semibold text-navy">
           Speech therapy practice options in {regionCode}
@@ -42,7 +42,7 @@ export default function RegionPage({ params }: RegionPageProps) {
           province.
         </p>
         <div className="mt-6 rounded-xl border border-surface-muted bg-surface px-4 py-6 text-sm text-slate-500">
-          Shop data will be loaded from your data model. This template
+          Practice data will be loaded from your data model. This template
           ships with an empty `data/` folder (no JSON files).
           <code className="rounded bg-surface-muted px-1 py-0.5 text-xs">
             /data

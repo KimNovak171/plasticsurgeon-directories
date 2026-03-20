@@ -27,7 +27,7 @@ export async function generateMetadata({
   const { stateName, cityName, facilities: cityFacilities } =
     await getCityFacilities(safeState, safeCity);
   const count = Array.isArray(cityFacilities) ? cityFacilities.length : 0;
-  const title = `Speech Therapy Shops in ${cityName}, ${stateName} | Speech Therapy Directories`;
+  const title = `Speech Therapy Practices in ${cityName}, ${stateName} | Speech Therapy Directories`;
   const description = `Find ${count.toLocaleString()} speech therapy practices in ${cityName}, ${stateName}. Compare services and practice details. Verified listings with ratings and reviews.`;
 
   return {
@@ -131,7 +131,7 @@ export default async function CityPage({ params }: CityPageProps) {
   const webpageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: `Speech Therapy Shops in ${cityName}, ${stateName}`,
+    name: `Speech Therapy Practices in ${cityName}, ${stateName}`,
     url: `${siteUrl}/${stateSlugNorm}/${citySlugNorm}`,
     isPartOf: {
       "@type": "WebSite",
@@ -185,7 +185,7 @@ export default async function CityPage({ params }: CityPageProps) {
           Speech therapy by city
         </p>
         <h1 className="text-3xl font-semibold text-navy">
-          Speech Therapy Shops in {cityName}, {stateName}
+          Speech Therapy Practices in {cityName}, {stateName}
         </h1>
         <p className="max-w-2xl text-sm text-slate-600">
           {cityName} has {facilities.length.toLocaleString()} verified
@@ -226,7 +226,7 @@ export default async function CityPage({ params }: CityPageProps) {
 
       <section className="mt-8 space-y-4">
         <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-navy">
-          Shops in {cityName}
+          Practices in {cityName}
         </h2>
 
         {facilities.length === 0 ? (

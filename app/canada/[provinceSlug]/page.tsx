@@ -23,7 +23,7 @@ export async function generateMetadata({
     safeSlug,
   );
 
-  const title = `Speech Therapy Shops in ${provinceName}, Canada | Speech Therapy Directories`;
+  const title = `Speech Therapy Practices in ${provinceName}, Canada | Speech Therapy Directories`;
   const descriptor = `Find ${totalFacilities.toLocaleString()} speech therapy practices in ${provinceName}, Canada. Compare services and practice details. Verified listings with ratings and reviews.`;
 
   return {
@@ -147,7 +147,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
   const webpageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: `Speech Therapy Shops in ${provinceName}, Canada`,
+    name: `Speech Therapy Practices in ${provinceName}, Canada`,
     url: `${siteUrl}/canada/${resolvedProvinceSlug}`,
     isPartOf: {
       "@type": "WebSite",
@@ -201,7 +201,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
           Province overview
         </p>
         <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">
-          Speech Therapy Shops in {provinceName}, Canada
+          Speech Therapy Practices in {provinceName}, Canada
         </h1>
         <p className="mt-3 max-w-2xl text-sm text-foreground/80">
           Explore {careTypesText} across {provinceName}, including major city
@@ -212,7 +212,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
         <div className="mt-5 grid gap-4 text-sm sm:grid-cols-3">
           <div className="rounded-xl bg-surface p-4 ring-1 ring-navy/10">
             <p className="text-xs font-semibold uppercase tracking-wide text-gold-soft">
-              Shops listed
+              Practices listed
             </p>
             <p className="mt-1 text-2xl font-semibold">
               {totalFacilities.toLocaleString()}
@@ -267,12 +267,12 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-navy border-b-2 border-teal/50 pb-1 inline-block">
-              Speech Therapy Shops by City in {provinceName}
+              Speech Therapy Practices by City in {provinceName}
             </h2>
             <p className="mt-1 max-w-2xl text-sm text-slate-600">
               Choose a city to view all listed speech therapy practices, including
-              common services like speech evaluation, language support, and tire
-              service.
+              common services like speech evaluation, language support, and fluency
+              therapy.
             </p>
           </div>
           <div className="text-xs text-slate-500">

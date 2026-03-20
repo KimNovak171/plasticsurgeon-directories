@@ -25,7 +25,7 @@ export async function generateMetadata({
 
   const { stateName, totalFacilities, cities } = await getStateSummary(safeSlug);
 
-  const title = `Speech Therapy Shops in ${stateName} | ${totalFacilities.toLocaleString()} Verified Shops | SpeechTherapyDirectories.com`;
+  const title = `Speech Therapy Practices in ${stateName} | ${totalFacilities.toLocaleString()} Verified Practices | SpeechTherapyDirectories.com`;
 
   const descriptor = `Browse ${totalFacilities.toLocaleString()} verified speech therapy practices across ${cities.length.toLocaleString()} ${stateName} cities. speech evaluations, articulation therapy, language support, and more — all rated 3 stars or higher.`;
 
@@ -140,7 +140,7 @@ export default async function StatePage({ params }: StatePageProps) {
   const webpageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: `Speech Therapy Shops in ${stateName}`,
+    name: `Speech Therapy Practices in ${stateName}`,
     url: `${siteUrl}/${resolvedStateSlug}`,
     isPartOf: {
       "@type": "WebSite",
@@ -209,7 +209,7 @@ export default async function StatePage({ params }: StatePageProps) {
           State overview
         </p>
         <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">
-          Speech Therapy Shops in {stateName}
+          Speech Therapy Practices in {stateName}
         </h1>
         <p className="mt-3 max-w-2xl text-sm text-foreground/80">
           Explore {careTypesText} across {stateName}, including major city
@@ -229,7 +229,7 @@ export default async function StatePage({ params }: StatePageProps) {
         <div className="mt-5 grid gap-4 text-sm sm:grid-cols-3">
           <div className="rounded-xl bg-surface p-4 ring-1 ring-navy/10">
             <p className="text-xs font-semibold uppercase tracking-wide text-gold-soft">
-              Shops listed
+              Practices listed
             </p>
             <p className="mt-1 text-2xl font-semibold">
               {totalFacilities.toLocaleString()}
@@ -283,12 +283,12 @@ export default async function StatePage({ params }: StatePageProps) {
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-navy border-b-2 border-teal/50 pb-1 inline-block">
-              Speech Therapy Shops by City in {stateName}
+              Speech Therapy Practices by City in {stateName}
             </h2>
             <p className="mt-1 max-w-2xl text-sm text-slate-600">
               Choose a city to view all listed speech therapy practices, including
-              common services like speech evaluation, language support, and tire
-              service.
+              common services like speech evaluation, language support, and fluency
+              therapy.
             </p>
           </div>
           <div className="text-xs text-slate-500">

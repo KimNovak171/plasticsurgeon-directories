@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Advertise | Get Your Speech Therapy Practice in Front of Families",
     description:
-      "A featured listing puts your practice at the top of your city section and in front of high-intent visitors at the moment they are choosing a speech therapy/pathology service.",
+      "A featured listing puts your practice at the top of your city directory section and in front of high-intent visitors at the moment they are choosing a speech therapy/pathology service.",
     url: "/advertise",
     siteName: "SpeechTherapistDirectories.com",
     type: "website",
@@ -70,7 +70,7 @@ export default function AdvertisePage() {
         <p className="max-w-3xl text-sm text-slate-600">
           SpeechTherapistDirectories.com is visited by Families actively searching for
           speech therapy/pathology options across the United States. A featured listing puts
-          your practice at the top of your city section and in front of
+        your practice at the top of your city directory section and in front of
           high-intent visitors at the moment they are choosing a speech therapy/pathology service.
         </p>
       </header>
@@ -81,7 +81,7 @@ export default function AdvertisePage() {
             Featured Listing — $49/month
           </h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-600">
-            <li>Priority placement at the top of your city section</li>
+            <li>Priority placement at the top of your city directory section</li>
             <li>Featured badge on your listing</li>
             <li>Included in the Top Picks section on your state page</li>
             <li>Cancel anytime</li>
@@ -101,7 +101,7 @@ export default function AdvertisePage() {
           </h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-600">
             <li>Everything in Featured</li>
-            <li>Included in the Featured Shops section on the homepage</li>
+            <li>Included in the Featured Practices section on the homepage</li>
             <li>Your practice logo or photo displayed</li>
             <li>Custom tagline (up to 60 words)</li>
             <li>Cancel anytime</li>

@@ -5,14 +5,14 @@ import { getCanadaDirectoryIndex } from "@/lib/canadaFacilities";
 const siteUrl = "https://speechtherapydirectories.com";
 
 export const metadata: Metadata = {
-  title: "Speech Therapy Shops in Canada | Provincial Directories | Speech Therapy Directories",
+  title: "Speech Therapy Practices in Canada | Provincial Directories | Speech Therapy Directories",
   description:
     "Browse verified speech therapy practices across Canadian provinces. speech evaluations, articulation therapy, language support, and more — all rated 3 stars or higher.",
   alternates: {
     canonical: "/canada",
   },
   openGraph: {
-    title: "Speech Therapy Shops in Canada | Provincial Directories | Speech Therapy Directories",
+    title: "Speech Therapy Practices in Canada | Provincial Directories | Speech Therapy Directories",
     description:
       "Browse verified speech therapy practices across Canadian provinces. speech evaluations, articulation therapy, language support, and more.",
     url: "/canada",
@@ -38,10 +38,10 @@ export default async function CanadaLandingPage() {
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-12 sm:px-6 lg:py-16 lg:px-8">
           <div className="space-y-6 text-surface">
             <p className="inline-flex rounded-full bg-navy-soft/80 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-gold-soft ring-1 ring-gold-soft/40">
-              Canadian Speech Therapy Shop Directories
+              Canadian Speech Therapy Practice Directories
             </p>
             <h1 className="text-balance text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
-              Speech Therapy Shops in Canada — Province by Province
+              Speech Therapy Practices in Canada — Province by Province
             </h1>
             <p className="max-w-2xl text-balance text-sm sm:text-base text-surface/80">
               Verified speech therapy practices and services across Canadian provinces.

@@ -24,7 +24,7 @@ export async function generateMetadata({
   const { provinceName, cityName, facilities: cityFacilities } =
     await getCanadaCityFacilities(safeProvince, safeCity);
   const count = Array.isArray(cityFacilities) ? cityFacilities.length : 0;
-  const title = `Speech Therapy Shops in ${cityName}, ${provinceName}, Canada | Speech Therapy Directories`;
+  const title = `Speech Therapy Practices in ${cityName}, ${provinceName}, Canada | Speech Therapy Directories`;
   const description = `Find ${count.toLocaleString()} speech therapy practices in ${cityName}, ${provinceName}. Compare services and practice details. Verified listings with ratings and reviews.`;
 
   return {
@@ -130,7 +130,7 @@ export default async function CanadaCityPage({ params }: CanadaCityPageProps) {
   const webpageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: `Speech Therapy Shops in ${cityName}, ${provinceName}, Canada`,
+    name: `Speech Therapy Practices in ${cityName}, ${provinceName}, Canada`,
     url: `${siteUrl}/canada/${provinceSlugNorm}/${citySlugNorm}`,
     isPartOf: {
       "@type": "WebSite",
@@ -165,7 +165,7 @@ export default async function CanadaCityPage({ params }: CanadaCityPageProps) {
           Speech therapy by city
         </p>
         <h1 className="text-3xl font-semibold text-navy">
-          Speech Therapy Shops in {cityName}, {provinceName}
+          Speech Therapy Practices in {cityName}, {provinceName}
         </h1>
         <p className="max-w-2xl text-sm text-slate-600">
           {cityName} has {facilities.length.toLocaleString()} verified
@@ -211,7 +211,7 @@ export default async function CanadaCityPage({ params }: CanadaCityPageProps) {
 
       <section className="mt-8 space-y-4">
         <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-navy">
-          Shops in {cityName}
+          Practices in {cityName}
         </h2>
 
         {facilities.length === 0 ? (
