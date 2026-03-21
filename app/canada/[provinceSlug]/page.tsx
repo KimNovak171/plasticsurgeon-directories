@@ -6,7 +6,7 @@ import {
   getProvinceSummary,
 } from "@/lib/canadaFacilities";
 
-const siteUrl = "https://speechtherapydirectories.com";
+const siteUrl = "https://occupationaltherapydirectories.com";
 
 type ProvincePageProps = {
   params: Promise<{ provinceSlug: string }>;
@@ -23,8 +23,8 @@ export async function generateMetadata({
     safeSlug,
   );
 
-  const title = `Speech Therapy Practices in ${provinceName}, Canada | Speech Therapy Directories`;
-  const descriptor = `Find ${totalFacilities.toLocaleString()} speech therapy practices in ${provinceName}, Canada. Compare services and practice details. Verified listings with ratings and reviews.`;
+  const title = `Occupational Therapy Practices in ${provinceName}, Canada | Occupational Therapy Directories`;
+  const descriptor = `Find ${totalFacilities.toLocaleString()} occupational therapy practices in ${provinceName}, Canada. Compare services and practice details. Verified listings with ratings and reviews.`;
 
   return {
     title,
@@ -36,14 +36,14 @@ export async function generateMetadata({
       title,
       description: descriptor,
       url: canonicalPath,
-      siteName: "SpeechTherapyDirectories.com",
+      siteName: "OccupationalTherapyDirectories.com",
       type: "website",
       images: [
         {
           url: "/og-image.svg",
           width: 1200,
           height: 630,
-          alt: `${provinceName} speech therapy practice directory preview`,
+          alt: `${provinceName} occupational therapy practice directory preview`,
         },
       ],
     },
@@ -95,7 +95,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
       {
         "@type": "ListItem",
         position: 1,
-        name: "SpeechTherapyDirectories.com",
+        name: "OccupationalTherapyDirectories.com",
         item: `${siteUrl}/`,
       },
       {
@@ -119,7 +119,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
     mainEntity: [
       {
         "@type": "Question",
-        name: `How many speech therapy practices are in ${provinceName}?`,
+        name: `How many occupational therapy practices are in ${provinceName}?`,
         acceptedAnswer: {
           "@type": "Answer",
           text: `Our directory lists ${totalFacilities.toLocaleString()} verified facilities across ${cities.length.toLocaleString()} cities.`,
@@ -127,7 +127,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
       },
       {
         "@type": "Question",
-        name: `What types of speech therapy services are available in ${provinceName}?`,
+        name: `What types of occupational therapy services are available in ${provinceName}?`,
         acceptedAnswer: {
           "@type": "Answer",
           text: `${careTypesSentence}.`,
@@ -147,15 +147,15 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
   const webpageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: `Speech Therapy Practices in ${provinceName}, Canada`,
+    name: `Occupational Therapy Practices in ${provinceName}, Canada`,
     url: `${siteUrl}/canada/${resolvedProvinceSlug}`,
     isPartOf: {
       "@type": "WebSite",
-      name: "SpeechTherapyDirectories.com",
+      name: "OccupationalTherapyDirectories.com",
       url: `${siteUrl}/`,
     },
     about: [
-      { "@type": "Thing", name: `${provinceName} speech therapy practices` },
+      { "@type": "Thing", name: `${provinceName} occupational therapy practices` },
       { "@type": "Thing", name: "Speech evaluation" },
       { "@type": "Thing", name: "Language support" },
       { "@type": "Thing", name: "Fluency therapy" },
@@ -201,7 +201,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
           Province overview
         </p>
         <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">
-          Speech Therapy Practices in {provinceName}, Canada
+          Occupational Therapy Practices in {provinceName}, Canada
         </h1>
         <p className="mt-3 max-w-2xl text-sm text-foreground/80">
           Explore {careTypesText} across {provinceName}, including major city
@@ -267,10 +267,10 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-navy border-b-2 border-teal/50 pb-1 inline-block">
-              Speech Therapy Practices by City in {provinceName}
+              Occupational Therapy Practices by City in {provinceName}
             </h2>
             <p className="mt-1 max-w-2xl text-sm text-slate-600">
-              Choose a city to view all listed speech therapy practices, including
+              Choose a city to view all listed occupational therapy practices, including
               common services like speech evaluation, language support, and fluency
               therapy.
             </p>

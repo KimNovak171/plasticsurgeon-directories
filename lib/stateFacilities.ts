@@ -1168,7 +1168,7 @@ export function getGlobalStats(): GlobalStats {
 }
 
 export function getStateResourcesUrl(stateSlug: string): string {
-  // Template link: the site ships without state-by-state speech therapy data.
+  // Template link: the site ships without state-by-state occupational therapy data.
   return "https://www.usa.gov/consumer-protection";
   const normalized = stateSlug.toLowerCase();
   if (normalized === "california") {

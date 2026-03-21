@@ -12,11 +12,11 @@ export function generateMetadata({
   const regionCode = params.region.toUpperCase();
 
   return {
-    title: `Speech therapy practices in ${regionCode}`,
-    description: `Explore speech therapy practice options and services in ${regionCode} with SpeechTherapyDirectories.com.`,
+    title: `Occupational therapy practices in ${regionCode}`,
+    description: `Explore occupational therapy practice options and services in ${regionCode} with OccupationalTherapyDirectories.com.`,
     openGraph: {
-      title: `Speech therapy practices in ${regionCode} | SpeechTherapyDirectories.com`,
-      description: `Browse speech therapy practice options and services in ${regionCode}.`,
+      title: `Occupational therapy practices in ${regionCode} | OccupationalTherapyDirectories.com`,
+      description: `Browse occupational therapy practice options and services in ${regionCode}.`,
       url: `/locations/${params.region}`,
       type: "website",
     },
@@ -30,15 +30,15 @@ export default function RegionPage({ params }: RegionPageProps) {
     <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
       <div className="space-y-4">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-teal">
-          Speech Therapy Practices by Region
+          Occupational Therapy Practices by Region
         </p>
         <h1 className="text-3xl font-semibold text-navy">
-          Speech therapy practice options in {regionCode}
+          Occupational therapy practice options in {regionCode}
         </h1>
         <p className="max-w-2xl text-sm text-slate-600">
           This is a placeholder view for{" "}
           <span className="font-semibold">{regionCode}</span>. Here you&apos;ll
-          be able to browse speech therapy practice services in this state or
+          be able to browse occupational therapy practice services in this state or
           province.
         </p>
         <div className="mt-6 rounded-xl border border-surface-muted bg-surface px-4 py-6 text-sm text-slate-500">

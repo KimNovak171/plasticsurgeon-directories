@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://speechtherapydirectories.com/sitemap.xml",
+    sitemap: "https://occupationaltherapydirectories.com/sitemap.xml",
   };
 }
 

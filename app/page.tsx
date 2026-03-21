@@ -6,26 +6,26 @@ import { getDirectoryIndex, getStateSummary, getGlobalStats } from "@/lib/stateF
 
 export const metadata: Metadata = {
   title:
-    "speech pathologist Directory USA & Canada | Verified speech pathologists",
+    "occupational therapist Directory USA & Canada | Verified occupational therapists",
   description:
-    "Browse verified speech pathologists across the US and Canada. Speech evaluation, language support, fluency therapy, feeding support and more — all rated 3 stars or higher on Google Maps.",
+    "Browse verified occupational therapists across the US and Canada. Fine motor skills, sensory processing, daily living activities and more — all rated 3 stars or higher on Google Maps.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title:
-      "speech pathologist Directory USA & Canada | Verified speech pathologists",
+      "occupational therapist Directory USA & Canada | Verified occupational therapists",
     description:
-      "Browse verified speech pathologists across the US and Canada. speech evaluations, articulation therapy, language support, and more — all rated 3 stars or higher on Google Maps.",
+      "Browse verified occupational therapists across the US and Canada. fine motor skills, sensory processing, daily living activities, and more — all rated 3 stars or higher on Google Maps.",
     url: "/",
-    siteName: "speechtherapydirectories.com",
+    siteName: "occupationaltherapydirectories.com",
     type: "website",
     images: [
       {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "speechtherapydirectories.com homepage preview",
+        alt: "occupationaltherapydirectories.com homepage preview",
       },
     ],
   },
@@ -51,8 +51,8 @@ export default async function Home() {
       {
         "@type": "ListItem",
         position: 1,
-        name: "speechtherapydirectories.com",
-        item: "https://speechtherapydirectories.com/",
+        name: "occupationaltherapydirectories.com",
+        item: "https://occupationaltherapydirectories.com/",
       },
     ],
   };
@@ -67,13 +67,13 @@ export default async function Home() {
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-12 sm:px-6 lg:py-16 lg:px-8">
           <div className="space-y-6 text-foreground">
             <p className="inline-flex rounded-full border border-teal bg-surface px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-foreground">
-              speech therapy Directories
+              occupational therapy Directories
             </p>
             <h1 className="text-balance text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
-              Find Trusted speech pathologists — State by State
+              Find Trusted occupational therapists — State by State
             </h1>
             <p className="max-w-2xl text-balance text-sm sm:text-base text-foreground/80">
-              Verified speech pathologists and services across the US and
+              Verified occupational therapists and services across the US and
               Canada. Every practice rated 3★ or higher on Google Maps.
             </p>
           </div>
@@ -83,7 +83,7 @@ export default async function Home() {
               Start with a state directory
             </h2>
             <p className="mt-2 text-sm text-foreground/90">
-              Browse verified speech pathologists by state, then drill down by
+              Browse verified occupational therapists by state, then drill down by
               city to compare services and contact details.
             </p>
 
@@ -115,10 +115,10 @@ export default async function Home() {
 
       <section className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-semibold text-navy">
-          Canadian speech pathologist Directories
+          Canadian occupational therapist Directories
         </h2>
         <p className="mt-2 text-sm text-slate-600">
-          Browse verified speech pathologists by Canadian province. Same
+          Browse verified occupational therapists by Canadian province. Same
           directory experience — province by province, then by city.
         </p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -146,7 +146,7 @@ export default async function Home() {
         return (
           <section className="mx-auto max-w-6xl rounded-2xl border-2 border-teal/20 bg-surface px-4 py-10 sm:px-6 lg:px-8">
             <h2 className="text-xl font-semibold text-foreground">
-              Featured speech pathologists
+              Featured occupational therapists
             </h2>
             <p className="mt-1 text-sm text-slate-600">
               Selected practices across our directories — verified listings for
@@ -171,10 +171,10 @@ export default async function Home() {
         </Link>{" "}
         or contact{" "}
         <a
-          href="mailto:support@speechtherapydirectories.com"
+          href="mailto:support@occupationaltherapydirectories.com"
           className="font-medium text-teal underline underline-offset-2 hover:text-teal-soft"
         >
-          support@speechtherapydirectories.com
+          support@occupationaltherapydirectories.com
         </a>
         .
       </p>
@@ -183,7 +183,7 @@ export default async function Home() {
         <div className="mx-auto grid max-w-6xl gap-4 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           <div className="rounded-xl border-2 border-teal/30 bg-surface p-4 text-center shadow-sm">
             <p className="text-xs font-semibold uppercase tracking-wide text-teal">
-              Verified speech pathologists
+              Verified occupational therapists
             </p>
             <p className="mt-2 text-2xl font-semibold text-foreground">
               {globalStats.totalFacilities.toLocaleString()}
@@ -251,7 +251,7 @@ export default async function Home() {
                 3️⃣
               </p>
               <h3 className="mt-3 text-lg font-semibold text-foreground">
-                Contact speech pathologists directly
+                Contact occupational therapists directly
               </h3>
               <p className="mt-2 text-sm text-slate-600">
                 Use website and maps links to verify details and contact
@@ -302,10 +302,10 @@ export default async function Home() {
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-gold/50 bg-surface p-6 text-foreground ring-1 ring-gold/30">
             <h2 className="text-2xl font-semibold text-foreground">
-              Are You an speech pathologist Owner?
+              Are You an occupational therapist Owner?
             </h2>
             <p className="mt-3 max-w-3xl text-sm text-foreground/90">
-              Get your practice seen by caregivers actively searching for speech therapy
+              Get your practice seen by caregivers actively searching for occupational therapy
               options in your city. Featured listings available.
             </p>
             <div className="mt-5">

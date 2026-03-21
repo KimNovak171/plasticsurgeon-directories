@@ -8,7 +8,7 @@ import {
   getStateSummary,
 } from "@/lib/stateFacilities";
 
-const siteUrl = "https://speechtherapydirectories.com";
+const siteUrl = "https://occupationaltherapydirectories.com";
 
 type StatePageProps = {
   params: Promise<{ stateSlug: string }>;
@@ -25,9 +25,9 @@ export async function generateMetadata({
 
   const { stateName, totalFacilities, cities } = await getStateSummary(safeSlug);
 
-  const title = `Speech Therapy Practices in ${stateName} | ${totalFacilities.toLocaleString()} Verified Practices | SpeechTherapyDirectories.com`;
+  const title = `Occupational Therapy Practices in ${stateName} | ${totalFacilities.toLocaleString()} Verified Practices | OccupationalTherapyDirectories.com`;
 
-  const descriptor = `Browse ${totalFacilities.toLocaleString()} verified speech therapy practices across ${cities.length.toLocaleString()} ${stateName} cities. speech evaluations, articulation therapy, language support, and more — all rated 3 stars or higher.`;
+  const descriptor = `Browse ${totalFacilities.toLocaleString()} verified occupational therapy practices across ${cities.length.toLocaleString()} ${stateName} cities. speech evaluations, articulation therapy, language support, and more — all rated 3 stars or higher.`;
 
   return {
     title,
@@ -42,14 +42,14 @@ export async function generateMetadata({
       title,
       description: descriptor,
       url: canonicalPath,
-      siteName: "SpeechTherapyDirectories.com",
+      siteName: "OccupationalTherapyDirectories.com",
       type: "website",
       images: [
         {
           url: "/og-image.svg",
           width: 1200,
           height: 630,
-          alt: `${stateName} speech therapy practice directory preview`,
+          alt: `${stateName} occupational therapy practice directory preview`,
         },
       ],
     },
@@ -94,7 +94,7 @@ export default async function StatePage({ params }: StatePageProps) {
       {
         "@type": "ListItem",
         position: 1,
-        name: "SpeechTherapyDirectories.com",
+        name: "OccupationalTherapyDirectories.com",
         item: `${siteUrl}/`,
       },
       {
@@ -112,7 +112,7 @@ export default async function StatePage({ params }: StatePageProps) {
     mainEntity: [
       {
         "@type": "Question",
-        name: `How many speech therapy practices are in ${stateName}?`,
+        name: `How many occupational therapy practices are in ${stateName}?`,
         acceptedAnswer: {
           "@type": "Answer",
           text: `Our directory lists ${totalFacilities.toLocaleString()} verified facilities across ${cities.length.toLocaleString()} cities.`,
@@ -120,7 +120,7 @@ export default async function StatePage({ params }: StatePageProps) {
       },
       {
         "@type": "Question",
-        name: `What types of speech therapy services are available in ${stateName}?`,
+        name: `What types of occupational therapy services are available in ${stateName}?`,
         acceptedAnswer: {
           "@type": "Answer",
           text: `${careTypesSentence}.`,
@@ -140,17 +140,17 @@ export default async function StatePage({ params }: StatePageProps) {
   const webpageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: `Speech Therapy Practices in ${stateName}`,
+    name: `Occupational Therapy Practices in ${stateName}`,
     url: `${siteUrl}/${resolvedStateSlug}`,
     isPartOf: {
       "@type": "WebSite",
-      name: "SpeechTherapyDirectories.com",
+      name: "OccupationalTherapyDirectories.com",
       url: `${siteUrl}/`,
     },
     about: [
       {
         "@type": "Thing",
-        name: `${stateName} speech therapy practices`,
+        name: `${stateName} occupational therapy practices`,
       },
       {
         "@type": "Thing",
@@ -209,7 +209,7 @@ export default async function StatePage({ params }: StatePageProps) {
           State overview
         </p>
         <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">
-          Speech Therapy Practices in {stateName}
+          Occupational Therapy Practices in {stateName}
         </h1>
         <p className="mt-3 max-w-2xl text-sm text-foreground/80">
           Explore {careTypesText} across {stateName}, including major city
@@ -221,7 +221,7 @@ export default async function StatePage({ params }: StatePageProps) {
             rel="noopener noreferrer"
             className="underline underline-offset-2 hover:text-gold-soft"
           >
-            official {stateName} speech therapy consumer resources
+            official {stateName} occupational therapy consumer resources
           </a>{" "}
           for finding qualified practitioners and understanding your options.
         </p>
@@ -283,10 +283,10 @@ export default async function StatePage({ params }: StatePageProps) {
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-navy border-b-2 border-teal/50 pb-1 inline-block">
-              Speech Therapy Practices by City in {stateName}
+              Occupational Therapy Practices by City in {stateName}
             </h2>
             <p className="mt-1 max-w-2xl text-sm text-slate-600">
-              Choose a city to view all listed speech therapy practices, including
+              Choose a city to view all listed occupational therapy practices, including
               common services like speech evaluation, language support, and fluency
               therapy.
             </p>

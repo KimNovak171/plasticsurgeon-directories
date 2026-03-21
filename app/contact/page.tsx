@@ -3,33 +3,33 @@ import Link from "next/link";
 import { ContactForm } from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Speech Therapy Directories",
+  title: "Contact Us | Occupational Therapy Directories",
   description:
-    "Get in touch with SpeechTherapyDirectories.com. Send a message or email support@speechtherapydirectories.com for questions about our directory or featured listings.",
+    "Get in touch with OccupationalTherapyDirectories.com. Send a message or email support@occupationaltherapydirectories.com for questions about our directory or featured listings.",
   alternates: {
     canonical: "/contact",
     languages: {
-      "en-us": "https://speechtherapydirectories.com/contact",
+      "en-us": "https://occupationaltherapydirectories.com/contact",
     },
   },
   openGraph: {
-    title: "Contact Us | Speech Therapy Directories",
+    title: "Contact Us | Occupational Therapy Directories",
     description:
-      "Contact SpeechTherapyDirectories.com for questions about our directory or featured listings.",
+      "Contact OccupationalTherapyDirectories.com for questions about our directory or featured listings.",
     url: "/contact",
-    siteName: "SpeechTherapyDirectories.com",
+    siteName: "OccupationalTherapyDirectories.com",
     type: "website",
   },
 };
 
-const siteUrl = "https://speechtherapydirectories.com";
+const siteUrl = "https://occupationaltherapydirectories.com";
 
 export default function ContactPage() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "SpeechTherapyDirectories.com", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 1, name: "OccupationalTherapyDirectories.com", item: `${siteUrl}/` },
       { "@type": "ListItem", position: 2, name: "Contact", item: `${siteUrl}/contact` },
     ],
   };
@@ -52,10 +52,10 @@ export default function ContactPage() {
           Have a question about our directory, a listing, or featured placement?
           Use the form below or email us directly at{" "}
           <a
-            href="mailto:support@speechtherapydirectories.com"
+            href="mailto:support@occupationaltherapydirectories.com"
             className="font-medium text-teal underline underline-offset-2 hover:text-teal-soft"
           >
-            support@speechtherapydirectories.com
+            support@occupationaltherapydirectories.com
           </a>
           .
         </p>
@@ -69,10 +69,10 @@ export default function ContactPage() {
         <p className="text-sm font-medium text-navy">Email us directly</p>
         <p className="mt-1 text-sm text-slate-700">
           <a
-            href="mailto:support@speechtherapydirectories.com"
+            href="mailto:support@occupationaltherapydirectories.com"
             className="font-medium text-teal underline underline-offset-2 hover:text-teal-soft"
           >
-            support@speechtherapydirectories.com
+            support@occupationaltherapydirectories.com
           </a>
         </p>
       </section>
