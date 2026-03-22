@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getCanadaDirectoryIndex } from "@/lib/canadaFacilities";
+import {
+  getCanadaDirectoryIndex,
+  getCanadaNationwideStats,
+} from "@/lib/canadaFacilities";
 
 const siteUrl = "https://occupationaltherapydirectories.com";
 
@@ -31,6 +34,7 @@ export const metadata: Metadata = {
 
 export default async function CanadaLandingPage() {
   const directory = await getCanadaDirectoryIndex();
+  const caNationwide = getCanadaNationwideStats();
 
   return (
     <div className="bg-background text-foreground">
@@ -78,6 +82,43 @@ export default async function CanadaLandingPage() {
               Each province has its own dedicated directory — specific
               practices, specific cities, built for that province only.
             </p>
+          </div>
+
+          <div className="grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-xl border border-gold/40 bg-navy/80 p-4 text-center text-white shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-wide text-gold-soft">
+                Provinces &amp; territories
+              </p>
+              <p className="mt-2 text-2xl font-semibold">
+                {caNationwide.provinceCount.toLocaleString()}
+              </p>
+            </div>
+            <div className="rounded-xl border border-gold/40 bg-navy/80 p-4 text-center text-white shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-wide text-gold-soft">
+                Verified practices
+              </p>
+              <p className="mt-2 text-2xl font-semibold">
+                {caNationwide.totalFacilities.toLocaleString()}
+              </p>
+            </div>
+            <div className="rounded-xl border border-gold/40 bg-navy/80 p-4 text-center text-white shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-wide text-gold-soft">
+                Cities covered
+              </p>
+              <p className="mt-2 text-2xl font-semibold">
+                {caNationwide.totalCities.toLocaleString()}
+              </p>
+            </div>
+            <div className="rounded-xl border border-gold/40 bg-navy/80 p-4 text-center text-white shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-wide text-gold-soft">
+                Average rating
+              </p>
+              <p className="mt-2 text-2xl font-semibold">
+                {caNationwide.averageRating != null
+                  ? `${caNationwide.averageRating}★`
+                  : "—"}
+              </p>
+            </div>
           </div>
         </div>
       </section>

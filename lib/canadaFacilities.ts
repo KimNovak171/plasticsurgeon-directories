@@ -2,22 +2,50 @@ import type { Facility } from "@/components/FacilityCard";
 import fs from "fs";
 import path from "path";
 
-// Build-time empty datasets.
-// This Next.js app is allowed to build with an empty `data/` folder
-// (no JSON files).
-function loadCanadaProvinceFacilities(fileName: string): any[] {
-  const filePath = path.join(process.cwd(), "data", fileName);
-  if (!fs.existsSync(filePath)) return [];
+/** All provinces & territories with `data/{slug}_facilities.json` */
+const CANADA_PROVINCE_SLUGS = [
+  "alberta",
+  "british-columbia",
+  "manitoba",
+  "new-brunswick",
+  "newfoundland-and-labrador",
+  "northwest-territories",
+  "nova-scotia",
+  "nunavut",
+  "ontario",
+  "prince-edward-island",
+  "quebec",
+  "saskatchewan",
+  "yukon",
+] as const;
+
+const PROVINCE_DISPLAY_NAMES: Record<string, string> = {
+  alberta: "Alberta",
+  "british-columbia": "British Columbia",
+  manitoba: "Manitoba",
+  "new-brunswick": "New Brunswick",
+  "newfoundland-and-labrador": "Newfoundland and Labrador",
+  "northwest-territories": "Northwest Territories",
+  "nova-scotia": "Nova Scotia",
+  nunavut: "Nunavut",
+  ontario: "Ontario",
+  "prince-edward-island": "Prince Edward Island",
+  quebec: "Quebec",
+  saskatchewan: "Saskatchewan",
+  yukon: "Yukon",
+};
+
+function loadCanadaProvinceRawArray(slug: string): CanadaFacilityRaw[] {
+  const filePath = path.join(process.cwd(), "data", `${slug}_facilities.json`);
   try {
-    const parsed: unknown = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-    // Canada province files are stored as a top-level facilities array.
-    if (Array.isArray(parsed)) return parsed as any[];
+    const parsed: unknown = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    if (Array.isArray(parsed)) return parsed as CanadaFacilityRaw[];
     if (
       parsed &&
       typeof parsed === "object" &&
-      Array.isArray((parsed as any).facilities)
+      Array.isArray((parsed as { facilities?: unknown }).facilities)
     ) {
-      return (parsed as any).facilities as any[];
+      return (parsed as { facilities: CanadaFacilityRaw[] }).facilities;
     }
     return [];
   } catch {
@@ -25,68 +53,9 @@ function loadCanadaProvinceFacilities(fileName: string): any[] {
   }
 }
 
-const britishColumbiaData = {
-  province: "British Columbia",
-  facilities: loadCanadaProvinceFacilities(
-    "british-columbia_facilities.json",
-  ),
-} as any;
-const albertaData = {
-  province: "Alberta",
-  facilities: loadCanadaProvinceFacilities("alberta_facilities.json"),
-} as any;
-const saskatchewanData = {
-  province: "Saskatchewan",
-  facilities: loadCanadaProvinceFacilities("saskatchewan_facilities.json"),
-} as any;
-const manitobaData = {
-  province: "Manitoba",
-  facilities: loadCanadaProvinceFacilities("manitoba_facilities.json"),
-} as any;
-const ontarioData = {
-  province: "Ontario",
-  facilities: loadCanadaProvinceFacilities("ontario_facilities.json"),
-} as any;
-const novaScotiaData = {
-  province: "Nova Scotia",
-  facilities: loadCanadaProvinceFacilities("nova-scotia_facilities.json"),
-} as any;
-const newBrunswickData = {
-  province: "New Brunswick",
-  facilities: loadCanadaProvinceFacilities("new-brunswick_facilities.json"),
-} as any;
-const princeEdwardIslandData = {
-  province: "Prince Edward Island",
-  facilities: loadCanadaProvinceFacilities(
-    "prince-edward-island_facilities.json",
-  ),
-} as any;
-const northwestTerritoriesData = {
-  province: "Northwest Territories",
-  facilities: loadCanadaProvinceFacilities(
-    "northwest-territories_facilities.json",
-  ),
-} as any;
-const yukonData = {
-  province: "Yukon",
-  facilities: loadCanadaProvinceFacilities("yukon_facilities.json"),
-} as any;
-const nunavutData = {
-  province: "Nunavut",
-  facilities: loadCanadaProvinceFacilities("nunavut_facilities.json"),
-} as any;
-const newfoundlandAndLabradorData = {
-  province: "Newfoundland and Labrador",
-  facilities: loadCanadaProvinceFacilities(
-    "newfoundland-and-labrador_facilities.json",
-  ),
-} as any;
-// Quebec data is treated as a raw array in this template.
-const quebecData = loadCanadaProvinceFacilities("quebec_facilities.json");
-
 type CanadaFacilityRaw = {
   name: string;
-  care_type: string;
+  care_type?: string;
   address: string;
   city: string;
   province: string;
@@ -101,12 +70,6 @@ type CanadaFacilityRaw = {
   premium?: boolean;
   logo?: string | null;
   tagline?: string | null;
-};
-
-type CanadaJson = {
-  province: string;
-  country: string;
-  facilities: CanadaFacilityRaw[];
 };
 
 export type CanadaRawFacility = {
@@ -192,10 +155,13 @@ function transformCanadaFacilities(
     const addressLine1 = addressParts[0] ?? f.address ?? "";
     const addressLine2 =
       addressParts.length > 1 ? addressParts.slice(1).join(", ") : undefined;
-    // For Canada we rely on `place_id` (no address-string fallback).
-    const mapsUrl = f.place_id
-      ? `https://search.google.com/local/reviews?placeid=${f.place_id}&q=*&authuser=0&hl=en&gl=CA`
-      : undefined;
+    const fullAddress = (f.address ?? "").trim();
+    const pid = f.place_id?.trim();
+    const mapsUrl = pid
+      ? `https://search.google.com/local/reviews?placeid=${pid}&q=*&authuser=0&hl=en&gl=CA`
+      : fullAddress
+        ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`
+        : undefined;
     return {
       id,
       name: f.name,
@@ -220,87 +186,13 @@ function transformCanadaFacilities(
   });
 }
 
-const britishColumbiaFacilities = transformCanadaFacilities(
-  (britishColumbiaData as CanadaJson).facilities,
-  (britishColumbiaData as CanadaJson).province,
-  "british-columbia",
-);
-const albertaFacilities = transformCanadaFacilities(
-  (albertaData as CanadaJson).facilities,
-  (albertaData as CanadaJson).province,
-  "alberta",
-);
-const saskatchewanFacilities = transformCanadaFacilities(
-  (saskatchewanData as CanadaJson).facilities,
-  (saskatchewanData as CanadaJson).province,
-  "saskatchewan",
-);
-const manitobaFacilities = transformCanadaFacilities(
-  (manitobaData as CanadaJson).facilities,
-  (manitobaData as CanadaJson).province,
-  "manitoba",
-);
-const ontarioFacilities = transformCanadaFacilities(
-  (ontarioData as CanadaJson).facilities,
-  (ontarioData as CanadaJson).province,
-  "ontario",
-);
-const novaScotiaFacilities = transformCanadaFacilities(
-  (novaScotiaData as CanadaJson).facilities,
-  (novaScotiaData as CanadaJson).province,
-  "nova-scotia",
-);
-const newBrunswickFacilities = transformCanadaFacilities(
-  (newBrunswickData as CanadaJson).facilities,
-  (newBrunswickData as CanadaJson).province,
-  "new-brunswick",
-);
-const princeEdwardIslandFacilities = transformCanadaFacilities(
-  (princeEdwardIslandData as CanadaJson).facilities,
-  (princeEdwardIslandData as CanadaJson).province,
-  "prince-edward-island",
-);
-const northwestTerritoriesFacilities = transformCanadaFacilities(
-  (northwestTerritoriesData as CanadaJson).facilities,
-  (northwestTerritoriesData as CanadaJson).province,
-  "northwest-territories",
-);
-const yukonFacilities = transformCanadaFacilities(
-  (yukonData as CanadaJson).facilities,
-  (yukonData as CanadaJson).province,
-  "yukon",
-);
-const nunavutFacilities = transformCanadaFacilities(
-  (nunavutData as CanadaJson).facilities,
-  (nunavutData as CanadaJson).province,
-  "nunavut",
-);
-const newfoundlandAndLabradorFacilities = transformCanadaFacilities(
-  (newfoundlandAndLabradorData as CanadaJson).facilities,
-  (newfoundlandAndLabradorData as CanadaJson).province,
-  "newfoundland-and-labrador",
-);
-const quebecFacilities = transformCanadaFacilities(
-  quebecData as unknown as CanadaFacilityRaw[],
-  "Quebec",
-  "quebec",
-);
-
-const PROVINCE_DATA: Record<string, CanadaRawFacility[]> = {
-  alberta: albertaFacilities,
-  "british-columbia": britishColumbiaFacilities,
-  manitoba: manitobaFacilities,
-  "new-brunswick": newBrunswickFacilities,
-  "newfoundland-and-labrador": newfoundlandAndLabradorFacilities,
-  "northwest-territories": northwestTerritoriesFacilities,
-  "nova-scotia": novaScotiaFacilities,
-  nunavut: nunavutFacilities,
-  ontario: ontarioFacilities,
-  "prince-edward-island": princeEdwardIslandFacilities,
-  quebec: quebecFacilities,
-  saskatchewan: saskatchewanFacilities,
-  yukon: yukonFacilities,
-};
+const PROVINCE_DATA: Record<string, CanadaRawFacility[]> = {};
+for (const slug of CANADA_PROVINCE_SLUGS) {
+  const raw = loadCanadaProvinceRawArray(slug);
+  const provinceName =
+    (raw[0]?.province ?? "").trim() || PROVINCE_DISPLAY_NAMES[slug] || slug;
+  PROVINCE_DATA[slug] = transformCanadaFacilities(raw, provinceName, slug);
+}
 
 /** Sync totals for homepage / global stats (US module aggregates with this). */
 export function getCanadaStatsForGlobal(): {
@@ -324,21 +216,27 @@ export function getCanadaStatsForGlobal(): {
   return { totalFacilities, totalCities: cityKeys.size, ratings };
 }
 
-const PROVINCE_DISPLAY_NAMES: Record<string, string> = {
-  alberta: "Alberta",
-  "british-columbia": "British Columbia",
-  manitoba: "Manitoba",
-  "new-brunswick": "New Brunswick",
-  "newfoundland-and-labrador": "Newfoundland and Labrador",
-  "northwest-territories": "Northwest Territories",
-  "nova-scotia": "Nova Scotia",
-  nunavut: "Nunavut",
-  ontario: "Ontario",
-  "prince-edward-island": "Prince Edward Island",
-  quebec: "Quebec",
-  saskatchewan: "Saskatchewan",
-  yukon: "Yukon",
-};
+export function getCanadaNationwideStats(): {
+  provinceCount: number;
+  totalFacilities: number;
+  totalCities: number;
+  averageRating: number | null;
+} {
+  const { totalFacilities, totalCities, ratings } = getCanadaStatsForGlobal();
+  const provinceCount = CANADA_PROVINCE_SLUGS.length;
+  const averageRating =
+    ratings.length > 0
+      ? Number(
+          (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(1),
+        )
+      : null;
+  return {
+    provinceCount,
+    totalFacilities,
+    totalCities,
+    averageRating,
+  };
+}
 
 function toCanadaFacilityRecord(raw: CanadaRawFacility): CanadaFacilityRecord {
   const addressLines: string[] = [raw.addressLine1];
