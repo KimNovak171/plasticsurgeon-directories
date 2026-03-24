@@ -16,29 +16,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://familydoctordirectories.com"),
+  metadataBase: new URL("https://dentistrydirectories.com"),
   title: {
-    default: "FamilyDoctorDirectories.com | Family Doctor Directory",
-    template: "%s | FamilyDoctorDirectories.com",
+    default: "DentistryDirectories.com | Dental Directory",
+    template: "%s | DentistryDirectories.com",
   },
   description:
-    "FamilyDoctorDirectories.com is a professional, easy-to-use Family Doctor directory helping families find local family-doctors and services across the United States and Canada.",
+    "DentistryDirectories.com is a professional, easy-to-use dental directory helping patients and families find local dentists and dental services across the United States and Canada.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "FamilyDoctorDirectories.com | Family Doctor Directory",
+    title: "DentistryDirectories.com | Dental Directory",
     description:
-      "Trusted resource to explore and compare family-doctors and services across North America.",
+      "Trusted resource to explore and compare dentists and dental services across North America.",
     url: "/",
-    siteName: "FamilyDoctorDirectories.com",
+    siteName: "DentistryDirectories.com",
     type: "website",
     images: [
       {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "FamilyDoctorDirectories.com logo preview",
+        alt: "DentistryDirectories.com logo preview",
       },
     ],
   },
@@ -69,9 +69,9 @@ export default async function RootLayout({
                 <Link
                   href="/"
                   className="text-[11px] font-bold tracking-[0.28em] sm:text-xs text-white hover:text-teal-soft transition-colors"
-                  aria-label="FamilyDoctorDirectories.com – go to homepage"
+                  aria-label="DentistryDirectories.com – go to homepage"
                 >
-                  FamilyDoctorDirectories.com
+                  DentistryDirectories.com
                 </Link>
                 <nav className="flex items-center gap-4" aria-label="Main navigation">
                   <Link
@@ -101,7 +101,7 @@ export default async function RootLayout({
                 </nav>
               </div>
               <p className="ml-4 hidden max-w-xs text-right text-xs text-white/90 sm:block">
-                Trusted Family Doctor directory for families and caregivers.
+                Trusted dental directory for patients and families.
               </p>
             </div>
           </header>
@@ -181,7 +181,7 @@ export default async function RootLayout({
           <footer className="w-full border-t border-teal/10 bg-surface">
             <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 text-xs text-foreground/80 sm:px-6 lg:px-8">
               <p>
-                © {new Date().getFullYear()} FamilyDoctorDirectories.com. For
+                © {new Date().getFullYear()} DentistryDirectories.com. For
                 informational purposes only – always verify licensing,
                 certifications, and safety requirements with your local authority.
               </p>
@@ -199,7 +199,7 @@ export default async function RootLayout({
                   Advertise
                 </Link>
                 <Link href="/advertise" className="hover:text-teal-soft">
-                  For family doctors
+                  For dentists
                 </Link>
                 <Link href="/advertise" className="hover:text-teal-soft">
                   Featured Listing

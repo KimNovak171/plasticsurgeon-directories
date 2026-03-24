@@ -21,9 +21,8 @@ type FacilityCardProps = {
   facility: Facility;
 };
 
-const getCareTypeColor = (_type: string): string => {
-  return "#1d4ed8";
-};
+/** Single badge color for all care-type labels (dental directory). */
+const CARE_TYPE_BADGE_COLOR = "#1d4ed8";
 
 function truncateToWords(text: string, maxWords: number): string {
   const trimmed = (text ?? "").trim();
@@ -244,12 +243,11 @@ export function FacilityCard({ facility }: FacilityCardProps) {
       {careTypes && careTypes.length > 0 && (
         <div className="mt-1 flex flex-wrap gap-2">
           {careTypes.map((type) => {
-            const color = getCareTypeColor(type);
             return (
               <span
                 key={type}
                 className="inline-flex items-center rounded-full px-3.5 py-1.5 text-[12px] font-bold uppercase tracking-wide text-white"
-                style={{ backgroundColor: color }}
+                style={{ backgroundColor: CARE_TYPE_BADGE_COLOR }}
               >
                 {type}
               </span>

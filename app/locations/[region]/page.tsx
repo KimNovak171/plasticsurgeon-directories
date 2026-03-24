@@ -12,11 +12,11 @@ export function generateMetadata({
   const regionCode = params.region.toUpperCase();
 
   return {
-    title: `Family Doctor practices in ${regionCode}`,
-    description: `Explore family-doctor practice options and services in ${regionCode} with FamilyDoctorDirectories.com.`,
+    title: `Dental practices in ${regionCode}`,
+    description: `Explore dental practice options and services in ${regionCode} with DentistryDirectories.com.`,
     openGraph: {
-      title: `Family Doctor practices in ${regionCode} | FamilyDoctorDirectories.com`,
-      description: `Browse family-doctor practice options and services in ${regionCode}.`,
+      title: `Dental practices in ${regionCode} | DentistryDirectories.com`,
+      description: `Browse dental practice options and services in ${regionCode}.`,
       url: `/locations/${params.region}`,
       type: "website",
     },
@@ -30,15 +30,15 @@ export default function RegionPage({ params }: RegionPageProps) {
     <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
       <div className="space-y-4">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-teal">
-          Family Doctor Practices by Region
+          Dental Practices by Region
         </p>
         <h1 className="text-3xl font-semibold text-navy">
-          Family Doctor practice options in {regionCode}
+          Dental practice options in {regionCode}
         </h1>
         <p className="max-w-2xl text-sm text-slate-600">
           This is a placeholder view for{" "}
           <span className="font-semibold">{regionCode}</span>. Here you&apos;ll
-          be able to browse family-doctor practice services in this state or
+          be able to browse dental practice services in this state or
           province.
         </p>
         <div className="mt-6 rounded-xl border border-surface-muted bg-surface px-4 py-6 text-sm text-slate-500">

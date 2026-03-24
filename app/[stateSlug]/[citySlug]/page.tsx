@@ -8,7 +8,7 @@ import {
   getOtherCitiesInState,
 } from "@/lib/stateFacilities";
 
-const siteUrl = "https://familydoctordirectories.com";
+const siteUrl = "https://dentistrydirectories.com";
 
 type CityPageProps = {
   params: Promise<{ stateSlug: string; citySlug: string }>;
@@ -27,8 +27,8 @@ export async function generateMetadata({
   const { stateName, cityName, facilities: cityFacilities } =
     await getCityFacilities(safeState, safeCity);
   const count = Array.isArray(cityFacilities) ? cityFacilities.length : 0;
-  const title = `Family Doctor Practices in ${cityName}, ${stateName} | Family Doctor Directories`;
-  const description = `Find ${count.toLocaleString()} family-doctor practices in ${cityName}, ${stateName}. Compare services and practice details. Verified listings with ratings and reviews.`;
+  const title = `Dental Practices in ${cityName}, ${stateName} | Dentistry Directories`;
+  const description = `Find ${count.toLocaleString()} dental practices in ${cityName}, ${stateName}. Compare services and practice details. Verified listings with ratings and reviews.`;
 
   return {
     title,
@@ -43,14 +43,14 @@ export async function generateMetadata({
       title,
       description,
       url: canonicalPath,
-      siteName: "FamilyDoctorDirectories.com",
+      siteName: "DentistryDirectories.com",
       type: "website",
       images: [
         {
           url: "/og-image.svg",
           width: 1200,
           height: 630,
-          alt: `${cityName}, ${stateName} family-doctor practice directory preview`,
+          alt: `${cityName}, ${stateName} dental practice directory preview`,
         },
       ],
     },
@@ -101,7 +101,7 @@ export default async function CityPage({ params }: CityPageProps) {
   const careTypesText =
     careTypes.length > 0
       ? careTypes.slice(0, 4).join(", ")
-      : "family-doctor services";
+      : "dental services";
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -110,7 +110,7 @@ export default async function CityPage({ params }: CityPageProps) {
       {
         "@type": "ListItem",
         position: 1,
-        name: "FamilyDoctorDirectories.com",
+        name: "DentistryDirectories.com",
         item: `${siteUrl}/`,
       },
       {
@@ -131,33 +131,33 @@ export default async function CityPage({ params }: CityPageProps) {
   const webpageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: `Family Doctor Practices in ${cityName}, ${stateName}`,
+    name: `Dental Practices in ${cityName}, ${stateName}`,
     url: `${siteUrl}/${stateSlugNorm}/${citySlugNorm}`,
     isPartOf: {
       "@type": "WebSite",
-      name: "FamilyDoctorDirectories.com",
+      name: "DentistryDirectories.com",
       url: `${siteUrl}/`,
     },
     about: [
       {
         "@type": "Thing",
-        name: `${cityName} family-doctor practices`,
+        name: `${cityName} dental practices`,
       },
       {
         "@type": "Thing",
-        name: `${stateName} family-doctor services`,
+        name: `${stateName} dental services`,
       },
       {
         "@type": "Thing",
-        name: "Family medicine",
+        name: "General dentistry",
       },
       {
         "@type": "Thing",
-        name: "Primary care",
+        name: "Dental care",
       },
       {
         "@type": "Thing",
-        name: "General practice",
+        name: "Cosmetic dentistry",
       },
       {
         "@type": "Thing",
@@ -182,21 +182,21 @@ export default async function CityPage({ params }: CityPageProps) {
       />
       <header className="space-y-4">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal">
-          Family Doctor by city
+          Dentists by city
         </p>
         <h1 className="text-3xl font-semibold text-navy">
-          Family Doctor Practices in {cityName}, {stateName}
+          Dental Practices in {cityName}, {stateName}
         </h1>
         <p className="max-w-2xl text-sm text-slate-600">
           {cityName} has {facilities.length.toLocaleString()} verified
-          family-doctor practices including {careTypesText}. Browse all options
+          dental practices including {careTypesText}. Browse all options
           below, each with Google Maps profile links and ratings data where
           available.
         </p>
         <p className="max-w-2xl text-sm text-slate-600">
           Compare practices side by side, review services and contact
-          details, and share this page with fellow caregivers as you plan next
-          steps in {stateName}.
+          details, and share this page with patients and families as you plan
+          next steps in {stateName}.
         </p>
       </header>
 

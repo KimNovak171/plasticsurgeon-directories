@@ -8,7 +8,7 @@ import {
   getStateSummary,
 } from "@/lib/stateFacilities";
 
-const siteUrl = "https://familydoctordirectories.com";
+const siteUrl = "https://dentistrydirectories.com";
 
 type StatePageProps = {
   params: Promise<{ stateSlug: string }>;
@@ -25,9 +25,9 @@ export async function generateMetadata({
 
   const { stateName, totalFacilities, cities } = await getStateSummary(safeSlug);
 
-  const title = `Family Doctor Practices in ${stateName} | ${totalFacilities.toLocaleString()} Verified Practices | FamilyDoctorDirectories.com`;
+  const title = `Dental Practices in ${stateName} | ${totalFacilities.toLocaleString()} Verified Practices | DentistryDirectories.com`;
 
-  const descriptor = `Browse ${totalFacilities.toLocaleString()} verified family-doctor practices across ${cities.length.toLocaleString()} ${stateName} cities. Find family doctors, general practitioners, and primary care physicians — all rated 3 stars or higher on Google Maps.`;
+  const descriptor = `Browse ${totalFacilities.toLocaleString()} verified dental practices across ${cities.length.toLocaleString()} ${stateName} cities. Find dentists and dental specialists — all rated 3 stars or higher on Google Maps.`;
 
   return {
     title,
@@ -42,14 +42,14 @@ export async function generateMetadata({
       title,
       description: descriptor,
       url: canonicalPath,
-      siteName: "FamilyDoctorDirectories.com",
+      siteName: "DentistryDirectories.com",
       type: "website",
       images: [
         {
           url: "/og-image.svg",
           width: 1200,
           height: 630,
-          alt: `${stateName} family-doctor practice directory preview`,
+          alt: `${stateName} dental practice directory preview`,
         },
       ],
     },
@@ -73,8 +73,8 @@ export default async function StatePage({ params }: StatePageProps) {
     careTypes,
   } = await getStateSummary(stateSlug ?? "");
   const resourcesUrl = getStateResourcesUrl(resolvedStateSlug);
-  const familyMedicineFocusText =
-    "family medicine, primary care, preventive care, and general practice";
+  const dentalCareFocusText =
+    "general dentistry, preventive care, cosmetic dentistry, and restorative dentistry";
   const majorCities = [...cities]
     .sort((a, b) => b.facilityCount - a.facilityCount)
     .slice(0, 6)
@@ -86,7 +86,7 @@ export default async function StatePage({ params }: StatePageProps) {
   const careTypesSentence =
     topCareTypes.length > 0
       ? topCareTypes.join(", ")
-      : "family medicine, primary care, preventive care, and chronic disease management";
+      : "general dentistry, preventive care, restorative care, and cosmetic dentistry";
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -95,7 +95,7 @@ export default async function StatePage({ params }: StatePageProps) {
       {
         "@type": "ListItem",
         position: 1,
-        name: "FamilyDoctorDirectories.com",
+        name: "DentistryDirectories.com",
         item: `${siteUrl}/`,
       },
       {
@@ -113,7 +113,7 @@ export default async function StatePage({ params }: StatePageProps) {
     mainEntity: [
       {
         "@type": "Question",
-        name: `How many family-doctor practices are in ${stateName}?`,
+        name: `How many dental practices are in ${stateName}?`,
         acceptedAnswer: {
           "@type": "Answer",
           text: `Our directory lists ${totalFacilities.toLocaleString()} verified facilities across ${cities.length.toLocaleString()} cities.`,
@@ -121,7 +121,7 @@ export default async function StatePage({ params }: StatePageProps) {
       },
       {
         "@type": "Question",
-        name: `What types of family-doctor services are available in ${stateName}?`,
+        name: `What types of dental services are available in ${stateName}?`,
         acceptedAnswer: {
           "@type": "Answer",
           text: `${careTypesSentence}.`,
@@ -141,29 +141,29 @@ export default async function StatePage({ params }: StatePageProps) {
   const webpageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: `Family Doctor Practices in ${stateName}`,
+    name: `Dental Practices in ${stateName}`,
     url: `${siteUrl}/${resolvedStateSlug}`,
     isPartOf: {
       "@type": "WebSite",
-      name: "FamilyDoctorDirectories.com",
+      name: "DentistryDirectories.com",
       url: `${siteUrl}/`,
     },
     about: [
       {
         "@type": "Thing",
-        name: `${stateName} family-doctor practices`,
+        name: `${stateName} dental practices`,
       },
       {
         "@type": "Thing",
-        name: "Family medicine",
+        name: "General dentistry",
       },
       {
         "@type": "Thing",
-        name: "Primary care",
+        name: "Dental care",
       },
       {
         "@type": "Thing",
-        name: "General practice",
+        name: "Cosmetic dentistry",
       },
       {
         "@type": "Thing",
@@ -210,12 +210,11 @@ export default async function StatePage({ params }: StatePageProps) {
           State overview
         </p>
         <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">
-          Family Doctor Practices in {stateName}
+          Dental Practices in {stateName}
         </h1>
         <p className="mt-3 max-w-2xl text-sm text-foreground/80">
-          Explore {familyMedicineFocusText} across {stateName}, including major
-          city areas such as {majorCitiesText}. Use this page to find family
-          doctors, general practitioners, and primary care physicians by city,
+          Explore {dentalCareFocusText} across {stateName}, including major city
+          areas such as {majorCitiesText}. Use this page to find dentists by city,
           then review{" "}
           <a
             href={resourcesUrl}
@@ -223,9 +222,9 @@ export default async function StatePage({ params }: StatePageProps) {
             rel="noopener noreferrer"
             className="underline underline-offset-2 hover:text-gold-soft"
           >
-            official {stateName} family doctor care consumer resources
+            official {stateName} dental care consumer resources
           </a>{" "}
-          for finding qualified practitioners and understanding your options.
+          for finding qualified dentists and understanding your options.
         </p>
 
         <div className="mt-5 grid gap-4 text-sm sm:grid-cols-3">
@@ -285,12 +284,12 @@ export default async function StatePage({ params }: StatePageProps) {
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-navy border-b-2 border-teal/50 pb-1 inline-block">
-              Family Doctor Practices by City in {stateName}
+              Dental Practices by City in {stateName}
             </h2>
             <p className="mt-1 max-w-2xl text-sm text-slate-600">
-              Choose a city to browse family doctors, general practitioners, and
-              primary care practices in {stateName}, including routine visits,
-              preventive care, and chronic disease management.
+              Choose a city to browse dentists and dental practices in{" "}
+              {stateName}, including routine visits, preventive care, and
+              restorative and periodontal care.
             </p>
           </div>
           <div className="text-xs text-slate-500">

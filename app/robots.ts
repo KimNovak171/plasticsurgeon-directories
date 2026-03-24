@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://familydoctordirectories.com/sitemap.xml",
+    sitemap: "https://dentistrydirectories.com/sitemap.xml",
   };
 }
 

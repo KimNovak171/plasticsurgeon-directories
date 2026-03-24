@@ -6,7 +6,7 @@ import {
   getProvinceSummary,
 } from "@/lib/canadaFacilities";
 
-const siteUrl = "https://familydoctordirectories.com";
+const siteUrl = "https://dentistrydirectories.com";
 
 type ProvincePageProps = {
   params: Promise<{ provinceSlug: string }>;
@@ -23,8 +23,8 @@ export async function generateMetadata({
     safeSlug,
   );
 
-  const title = `Family Doctor Practices in ${provinceName}, Canada | Family Doctor Directories`;
-  const descriptor = `Find ${totalFacilities.toLocaleString()} family-doctor practices in ${provinceName}, Canada. Compare services and practice details. Verified listings with ratings and reviews.`;
+  const title = `Dental Practices in ${provinceName}, Canada | Dentistry Directories`;
+  const descriptor = `Find ${totalFacilities.toLocaleString()} dental practices in ${provinceName}, Canada. Compare services and practice details. Verified listings with ratings and reviews.`;
 
   return {
     title,
@@ -36,14 +36,14 @@ export async function generateMetadata({
       title,
       description: descriptor,
       url: canonicalPath,
-      siteName: "FamilyDoctorDirectories.com",
+      siteName: "DentistryDirectories.com",
       type: "website",
       images: [
         {
           url: "/og-image.svg",
           width: 1200,
           height: 630,
-          alt: `${provinceName} family-doctor practice directory preview`,
+          alt: `${provinceName} dental practice directory preview`,
         },
       ],
     },
@@ -67,8 +67,8 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
     careTypes,
   } = await getProvinceSummary(provinceSlug ?? "");
 
-  const familyMedicineFocusText =
-    "family medicine, primary care, preventive care, and general practice";
+  const dentalCareFocusText =
+    "general dentistry, preventive care, cosmetic dentistry, and restorative dentistry";
   const majorCities = [...cities]
     .sort((a, b) => b.facilityCount - a.facilityCount)
     .slice(0, 6)
@@ -80,7 +80,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
   const careTypesSentence =
     topCareTypes.length > 0
       ? topCareTypes.join(", ")
-      : "family medicine, primary care, preventive care, and chronic disease management";
+      : "general dentistry, preventive care, restorative care, and cosmetic dentistry";
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -89,7 +89,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
       {
         "@type": "ListItem",
         position: 1,
-        name: "FamilyDoctorDirectories.com",
+        name: "DentistryDirectories.com",
         item: `${siteUrl}/`,
       },
       {
@@ -113,7 +113,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
     mainEntity: [
       {
         "@type": "Question",
-        name: `How many family-doctor practices are in ${provinceName}?`,
+        name: `How many dental practices are in ${provinceName}?`,
         acceptedAnswer: {
           "@type": "Answer",
           text: `Our directory lists ${totalFacilities.toLocaleString()} verified facilities across ${cities.length.toLocaleString()} cities.`,
@@ -121,7 +121,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
       },
       {
         "@type": "Question",
-        name: `What types of family-doctor services are available in ${provinceName}?`,
+        name: `What types of dental services are available in ${provinceName}?`,
         acceptedAnswer: {
           "@type": "Answer",
           text: `${careTypesSentence}.`,
@@ -141,18 +141,18 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
   const webpageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: `Family Doctor Practices in ${provinceName}, Canada`,
+    name: `Dental Practices in ${provinceName}, Canada`,
     url: `${siteUrl}/canada/${resolvedProvinceSlug}`,
     isPartOf: {
       "@type": "WebSite",
-      name: "FamilyDoctorDirectories.com",
+      name: "DentistryDirectories.com",
       url: `${siteUrl}/`,
     },
     about: [
-      { "@type": "Thing", name: `${provinceName} family-doctor practices` },
-      { "@type": "Thing", name: "Family medicine" },
-      { "@type": "Thing", name: "Primary care" },
-      { "@type": "Thing", name: "General practice" },
+      { "@type": "Thing", name: `${provinceName} dental practices` },
+      { "@type": "Thing", name: "General dentistry" },
+      { "@type": "Thing", name: "Dental care" },
+      { "@type": "Thing", name: "Cosmetic dentistry" },
       { "@type": "Thing", name: "Preventive care" },
     ],
     speakable: {
@@ -195,12 +195,11 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
           Province overview
         </p>
         <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">
-          Family Doctor Practices in {provinceName}, Canada
+          Dental Practices in {provinceName}, Canada
         </h1>
         <p className="mt-3 max-w-2xl text-sm text-foreground/80">
-          Explore {familyMedicineFocusText} across {provinceName}, including
-          major city areas such as {majorCitiesText}. Use this page to find
-          family doctors, general practitioners, and primary care physicians by
+          Explore {dentalCareFocusText} across {provinceName}, including major
+          city areas such as {majorCitiesText}. Use this page to find dentists by
           city.
         </p>
 
@@ -262,12 +261,12 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-navy border-b-2 border-teal/50 pb-1 inline-block">
-              Family Doctor Practices by City in {provinceName}
+              Dental Practices by City in {provinceName}
             </h2>
             <p className="mt-1 max-w-2xl text-sm text-slate-600">
-              Choose a city to browse family doctors, general practitioners, and
-              primary care practices in {provinceName}, including routine visits,
-              preventive care, and chronic disease management.
+              Choose a city to browse dentists and
+              dental practices in {provinceName}, including routine visits,
+              preventive care, and restorative and periodontal care.
             </p>
           </div>
           <div className="text-xs text-slate-500">

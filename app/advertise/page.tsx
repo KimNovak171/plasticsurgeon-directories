@@ -2,34 +2,34 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Advertise | Get Your Family Doctor Practice in Front of Families",
+  title: "Advertise | Get Your Dental Practice in Front of Families",
   description:
-    "Featured and premium listings on FamilyDoctorDirectories.com. Reach Families actively searching for Family Doctor Practices and services across the United States.",
+    "Featured and premium listings on DentistryDirectories.com. Reach Families actively searching for Dental Practices and services across the United States.",
   alternates: {
     canonical: "/advertise",
     languages: {
-      "en-us": "https://familydoctordirectories.com/advertise",
+      "en-us": "https://dentistrydirectories.com/advertise",
     },
   },
   openGraph: {
-    title: "Advertise | Get Your Family Doctor Practice in Front of Families",
+    title: "Advertise | Get Your Dental Practice in Front of Families",
     description:
-      "A featured listing puts your practice at the top of your city directory section and in front of high-intent visitors at the moment they are choosing a family-doctor service.",
+      "A featured listing puts your practice at the top of your city directory section and in front of high-intent visitors at the moment they are choosing a dental service.",
     url: "/advertise",
-    siteName: "FamilyDoctorDirectories.com",
+    siteName: "DentistryDirectories.com",
     type: "website",
     images: [
       {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "FamilyDoctorDirectories.com advertise page preview",
+        alt: "DentistryDirectories.com advertise page preview",
       },
     ],
   },
 };
 
-const siteUrl = "https://familydoctordirectories.com";
+const siteUrl = "https://dentistrydirectories.com";
 const STRIPE_LINK_49 = "https://buy.stripe.com/00weVd8UicXZgsCaLDfAc0g";
 const STRIPE_LINK_99 = "https://buy.stripe.com/4gM5kD8Ui1fh3FQ1b3fAc0h";
 
@@ -41,7 +41,7 @@ export default function AdvertisePage() {
       {
         "@type": "ListItem",
         position: 1,
-        name: "FamilyDoctorDirectories.com",
+        name: "DentistryDirectories.com",
         item: `${siteUrl}/`,
       },
       {
@@ -62,16 +62,16 @@ export default function AdvertisePage() {
 
       <header className="space-y-3">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal">
-          For Family Doctor Practice Owners
+          For Dental Practice Owners
         </p>
         <h1 className="text-3xl font-semibold text-navy sm:text-4xl">
           Get Your Practice in Front of Families Who Are Ready to Choose
         </h1>
         <p className="max-w-3xl text-sm text-slate-600">
-          FamilyDoctorDirectories.com is visited by Families actively searching for
-          family-doctor options across the United States. A featured listing puts
+          DentistryDirectories.com is visited by Families actively searching for
+          dental care options across the United States. A featured listing puts
           your practice at the top of your city directory section and in front of
-          high-intent visitors at the moment they are choosing a family-doctor service.
+          high-intent visitors at the moment they are choosing a dental service.
         </p>
       </header>
 
@@ -121,10 +121,10 @@ export default function AdvertisePage() {
         <p className="text-sm text-slate-700">
           To get started or ask questions, contact us at{" "}
           <a
-            href="mailto:support@familydoctordirectories.com"
+            href="mailto:hello@directoriesnetwork.com"
             className="font-medium text-teal underline underline-offset-2 hover:text-teal-soft"
           >
-            support@familydoctordirectories.com
+            hello@directoriesnetwork.com
           </a>{" "}
           — we&apos;ll have your listing live within 24 hours.
         </p>

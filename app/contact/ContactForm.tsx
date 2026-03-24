@@ -9,11 +9,11 @@ export function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Contact from Family Doctor Directories: ${name}`);
+    const subject = encodeURIComponent(`Contact from Dentistry Directories: ${name}`);
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     );
-    window.location.href = `mailto:support@familydoctordirectories.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:hello@directoriesnetwork.com?subject=${subject}&body=${body}`;
   };
 
   return (

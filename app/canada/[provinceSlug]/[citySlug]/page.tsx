@@ -7,7 +7,7 @@ import {
   getOtherCitiesInProvince,
 } from "@/lib/canadaFacilities";
 
-const siteUrl = "https://familydoctordirectories.com";
+const siteUrl = "https://dentistrydirectories.com";
 
 type CanadaCityPageProps = {
   params: Promise<{ provinceSlug: string; citySlug: string }>;
@@ -24,8 +24,8 @@ export async function generateMetadata({
   const { provinceName, cityName, facilities: cityFacilities } =
     await getCanadaCityFacilities(safeProvince, safeCity);
   const count = Array.isArray(cityFacilities) ? cityFacilities.length : 0;
-  const title = `Family Doctor Practices in ${cityName}, ${provinceName}, Canada | Family Doctor Directories`;
-  const description = `Find ${count.toLocaleString()} family-doctor practices in ${cityName}, ${provinceName}. Compare services and practice details. Verified listings with ratings and reviews.`;
+  const title = `Dental Practices in ${cityName}, ${provinceName}, Canada | Dentistry Directories`;
+  const description = `Find ${count.toLocaleString()} dental practices in ${cityName}, ${provinceName}. Compare services and practice details. Verified listings with ratings and reviews.`;
 
   return {
     title,
@@ -37,14 +37,14 @@ export async function generateMetadata({
       title,
       description,
       url: canonicalPath,
-      siteName: "FamilyDoctorDirectories.com",
+      siteName: "DentistryDirectories.com",
       type: "website",
       images: [
         {
           url: "/og-image.svg",
           width: 1200,
           height: 630,
-          alt: `${cityName}, ${provinceName} family-doctor practice directory preview`,
+          alt: `${cityName}, ${provinceName} dental practice directory preview`,
         },
       ],
     },
@@ -94,7 +94,7 @@ export default async function CanadaCityPage({ params }: CanadaCityPageProps) {
   const careTypesText =
     careTypes.length > 0
       ? careTypes.slice(0, 4).join(", ")
-      : "family-doctor services";
+      : "dental services";
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -103,7 +103,7 @@ export default async function CanadaCityPage({ params }: CanadaCityPageProps) {
       {
         "@type": "ListItem",
         position: 1,
-        name: "FamilyDoctorDirectories.com",
+        name: "DentistryDirectories.com",
         item: `${siteUrl}/`,
       },
       {
@@ -130,19 +130,19 @@ export default async function CanadaCityPage({ params }: CanadaCityPageProps) {
   const webpageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: `Family Doctor Practices in ${cityName}, ${provinceName}, Canada`,
+    name: `Dental Practices in ${cityName}, ${provinceName}, Canada`,
     url: `${siteUrl}/canada/${provinceSlugNorm}/${citySlugNorm}`,
     isPartOf: {
       "@type": "WebSite",
-      name: "FamilyDoctorDirectories.com",
+      name: "DentistryDirectories.com",
       url: `${siteUrl}/`,
     },
     about: [
-      { "@type": "Thing", name: `${cityName} family-doctor practices` },
-      { "@type": "Thing", name: `${provinceName} family-doctor services` },
-      { "@type": "Thing", name: "Family medicine" },
-      { "@type": "Thing", name: "Primary care" },
-      { "@type": "Thing", name: "General practice" },
+      { "@type": "Thing", name: `${cityName} dental practices` },
+      { "@type": "Thing", name: `${provinceName} dental services` },
+      { "@type": "Thing", name: "General dentistry" },
+      { "@type": "Thing", name: "Dental care" },
+      { "@type": "Thing", name: "Cosmetic dentistry" },
       { "@type": "Thing", name: "Preventive care" },
     ],
     speakable: {
@@ -163,20 +163,20 @@ export default async function CanadaCityPage({ params }: CanadaCityPageProps) {
       />
       <header className="space-y-4">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal">
-          Family Doctor by city
+          Dentists by city
         </p>
         <h1 className="text-3xl font-semibold text-navy">
-          Family Doctor Practices in {cityName}, {provinceName}
+          Dental Practices in {cityName}, {provinceName}
         </h1>
         <p className="max-w-2xl text-sm text-slate-600">
           {cityName} has {facilities.length.toLocaleString()} verified
-          family-doctor practices including {careTypesText}. Browse all options below,
+          dental practices including {careTypesText}. Browse all options below,
           each with Google Maps profile links and ratings data where available.
         </p>
         <p className="max-w-2xl text-sm text-slate-600">
           Compare practices side by side, review services and contact
-          details, and share this page with fellow caregivers as you plan next
-          steps in {provinceName}.
+          details, and share this page with patients and families as you plan
+          next steps in {provinceName}.
         </p>
       </header>
 
