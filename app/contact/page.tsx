@@ -3,33 +3,33 @@ import Link from "next/link";
 import { ContactForm } from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Urgent Care Directories",
+  title: "Contact Us | Plastic Surgeon Directories",
   description:
-    "Get in touch with UrgentCareDirectories.com. Send a message or email hello@directoriesnetwork.com for questions about our directory or featured listings.",
+    "Get in touch with PlasticSurgeonDirectories.com. Send a message or email hello@directoriesnetwork.com for questions about our directory or featured listings.",
   alternates: {
     canonical: "/contact",
     languages: {
-      "en-us": "https://urgentcaredirectories.com/contact",
+      "en-us": "https://plasticsurgeondirectories.com/contact",
     },
   },
   openGraph: {
-    title: "Contact Us | Urgent Care Directories",
+    title: "Contact Us | Plastic Surgeon Directories",
     description:
-      "Contact UrgentCareDirectories.com for questions about our directory or featured listings.",
+      "Contact PlasticSurgeonDirectories.com for questions about our directory or featured listings.",
     url: "/contact",
-    siteName: "UrgentCareDirectories.com",
+    siteName: "PlasticSurgeonDirectories.com",
     type: "website",
   },
 };
 
-const siteUrl = "https://urgentcaredirectories.com";
+const siteUrl = "https://plasticsurgeondirectories.com";
 
 export default function ContactPage() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "UrgentCareDirectories.com", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 1, name: "PlasticSurgeonDirectories.com", item: `${siteUrl}/` },
       { "@type": "ListItem", position: 2, name: "Contact", item: `${siteUrl}/contact` },
     ],
   };
