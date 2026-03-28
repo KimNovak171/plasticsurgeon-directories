@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/about",
     languages: {
-      "en-us": "https://plasticsurgeondirectories.com/about",
+      "en-us": "https://www.plasticsurgeondirectories.com/about",
     },
   },
   openGraph: {

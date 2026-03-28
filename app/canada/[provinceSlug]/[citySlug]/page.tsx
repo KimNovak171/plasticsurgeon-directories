@@ -7,7 +7,7 @@ import {
   getOtherCitiesInProvince,
 } from "@/lib/canadaFacilities";
 
-const siteUrl = "https://plasticsurgeondirectories.com";
+const siteUrl = "https://www.plasticsurgeondirectories.com";
 
 type CanadaCityPageProps = {
   params: Promise<{ provinceSlug: string; citySlug: string }>;

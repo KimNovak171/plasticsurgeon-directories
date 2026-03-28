@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/advertise",
     languages: {
-      "en-us": "https://plasticsurgeondirectories.com/advertise",
+      "en-us": "https://www.plasticsurgeondirectories.com/advertise",
     },
   },
   openGraph: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
 };
 
-const siteUrl = "https://plasticsurgeondirectories.com";
+const siteUrl = "https://www.plasticsurgeondirectories.com";
 const STRIPE_LINK_49 = "https://buy.stripe.com/14A5kDgmKbTV4JUf1TfAc0q";
 const STRIPE_LINK_99 = "https://buy.stripe.com/3cIaEX9Ymgabdgq2f7fAc0r";
 

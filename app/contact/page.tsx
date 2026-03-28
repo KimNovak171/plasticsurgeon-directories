@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/contact",
     languages: {
-      "en-us": "https://plasticsurgeondirectories.com/contact",
+      "en-us": "https://www.plasticsurgeondirectories.com/contact",
     },
   },
   openGraph: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
 };
 
-const siteUrl = "https://plasticsurgeondirectories.com";
+const siteUrl = "https://www.plasticsurgeondirectories.com";
 
 export default function ContactPage() {
   const breadcrumbSchema = {

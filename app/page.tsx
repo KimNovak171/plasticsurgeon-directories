@@ -55,7 +55,7 @@ export default async function Home() {
         "@type": "ListItem",
         position: 1,
         name: "PlasticSurgeonDirectories.com",
-        item: "https://plasticsurgeondirectories.com/",
+        item: "https://www.plasticsurgeondirectories.com/",
       },
     ],
   };

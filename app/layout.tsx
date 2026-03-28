@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://plasticsurgeondirectories.com"),
+  metadataBase: new URL("https://www.plasticsurgeondirectories.com"),
   title: {
     default: "PlasticSurgeonDirectories.com | Plastic Surgery Directory",
     template: "%s | PlasticSurgeonDirectories.com",

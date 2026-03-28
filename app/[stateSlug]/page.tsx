@@ -8,7 +8,7 @@ import {
   getStateSummary,
 } from "@/lib/stateFacilities";
 
-const siteUrl = "https://plasticsurgeondirectories.com";
+const siteUrl = "https://www.plasticsurgeondirectories.com";
 
 type StatePageProps = {
   params: Promise<{ stateSlug: string }>;

@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://plasticsurgeondirectories.com/sitemap.xml",
+    sitemap: "https://www.plasticsurgeondirectories.com/sitemap.xml",
   };
 }
 

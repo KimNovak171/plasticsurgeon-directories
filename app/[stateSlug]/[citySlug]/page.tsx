@@ -9,7 +9,7 @@ import {
   getOtherCitiesInState,
 } from "@/lib/stateFacilities";
 
-const siteUrl = "https://plasticsurgeondirectories.com";
+const siteUrl = "https://www.plasticsurgeondirectories.com";
 
 type CityPageProps = {
   params: Promise<{ stateSlug: string; citySlug: string }>;
