@@ -3,12 +3,15 @@ import fs from "fs";
 import path from "path";
 
 /**
- * All provinces & territories that may have `data/{slug}_facilities.json`.
- * `discoverCanadaProvinceSlugsFromData()` finds which of these files exist and
- * loads each in one batch (`readFileSync` + try/catch → [] per file).
- * Maps: with `place_id`, `https://www.google.com/maps/place/?q=place_id:{place_id}`
- * (full `q` value is URI-encoded). If `place_id` is missing/empty, fall back to
- * `https://www.google.com/maps/search/?api=1&query={encoded_address}`.
+ * Canadian provinces & territories that may have `data/{slug}_facilities.json`.
+ * `discoverCanadaProvinceSlugsFromData()` finds which files exist on disk; the
+ * module init loop below loads every discovered province in a single batch
+ * (`readFileSync` + try/catch → [] per file). No hardcoded per-province arrays.
+ *
+ * Maps URLs (see `buildCanadaMapsUrl`):
+ * - With non-empty `place_id`: `https://www.google.com/maps/place/?q=place_id:{place_id}`
+ *   (`q` is URI-encoded as a whole, e.g. `place_id%3AChIJ...`).
+ * - Otherwise: `https://www.google.com/maps/search/?api=1&query={encoded_address}`.
  */
 const ALL_CANADA_PROVINCE_SLUGS = [
   "alberta",
@@ -225,6 +228,7 @@ function transformCanadaFacilities(
   });
 }
 
+/** In-memory index: one entry per discovered province JSON, populated in a single batch at init. */
 const PROVINCE_DATA: Record<string, CanadaRawFacility[]> = {};
 for (const slug of discoverCanadaProvinceSlugsFromData()) {
   const raw = loadCanadaProvinceRawArray(slug);
