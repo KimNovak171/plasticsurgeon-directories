@@ -248,7 +248,8 @@ function loadUsStateFacilities(stateSlug: string): RawFacility[] {
 
 /**
  * Batch-load every discovered US `*_facilities.json` at module init (single pass).
- * Each state uses `loadUsStateFacilities` → `fs.readFileSync` + try/catch → `[]` on failure.
+ * Each slug from `discoverUsStateFacilitySlugs()` uses `loadUsStateFacilities` → `fs.readFileSync` + try/catch → `[]` on failure.
+ * Canadian province filenames are excluded by slug filter; no hardcoded per-state arrays.
  */
 const STATE_DATA: Record<string, RawFacility[]> = {};
 for (const slug of US_STATE_SLUGS) {
