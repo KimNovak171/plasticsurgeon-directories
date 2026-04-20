@@ -1,15 +1,43 @@
 import type { Metadata } from "next";
+import { getCanadaDirectoryIndex } from "@/lib/canadaFacilities";
+import { getDirectoryIndex } from "@/lib/stateFacilities";
+
+export const dynamic = "force-static";
 
 type RegionPageProps = {
-  params: {
+  params: Promise<{
     region: string;
-  };
+  }>;
 };
 
-export function generateMetadata({
+export async function generateStaticParams() {
+  const [directory, canadaDirectory] = await Promise.all([
+    getDirectoryIndex(),
+    getCanadaDirectoryIndex(),
+  ]);
+
+  const seen = new Set<string>();
+  const result: { region: string }[] = [];
+
+  for (const state of directory) {
+    if (!state.stateSlug || seen.has(state.stateSlug)) continue;
+    seen.add(state.stateSlug);
+    result.push({ region: state.stateSlug });
+  }
+  for (const province of canadaDirectory) {
+    if (!province.provinceSlug || seen.has(province.provinceSlug)) continue;
+    seen.add(province.provinceSlug);
+    result.push({ region: province.provinceSlug });
+  }
+
+  return result;
+}
+
+export async function generateMetadata({
   params,
-}: RegionPageProps): Metadata {
-  const regionCode = params.region.toUpperCase();
+}: RegionPageProps): Promise<Metadata> {
+  const { region } = await params;
+  const regionCode = region.toUpperCase();
 
   return {
     title: `Plastic surgeons in ${regionCode}`,
@@ -17,14 +45,15 @@ export function generateMetadata({
     openGraph: {
       title: `Plastic surgeons in ${regionCode} | PlasticSurgeonDirectories.com`,
       description: `Browse plastic surgeons and cosmetic surgery practices in ${regionCode}.`,
-      url: `/locations/${params.region}`,
+      url: `/locations/${region}`,
       type: "website",
     },
   };
 }
 
-export default function RegionPage({ params }: RegionPageProps) {
-  const regionCode = params.region.toUpperCase();
+export default async function RegionPage({ params }: RegionPageProps) {
+  const { region } = await params;
+  const regionCode = region.toUpperCase();
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
@@ -38,12 +67,12 @@ export default function RegionPage({ params }: RegionPageProps) {
         <p className="max-w-2xl text-sm text-slate-600">
           This is a placeholder view for{" "}
           <span className="font-semibold">{regionCode}</span>. Here you&apos;ll
-          be able to browse plastic and cosmetic surgery practices in this state or
-          province.
+          be able to browse plastic and cosmetic surgery practices in this state
+          or province.
         </p>
         <div className="mt-6 rounded-xl border border-surface-muted bg-surface px-4 py-6 text-sm text-slate-500">
-          Practice data will be loaded from your data model. This template
-          ships with an empty `data/` folder (no JSON files).
+          Practice data will be loaded from your data model. This template ships
+          with an empty `data/` folder (no JSON files).
           <code className="rounded bg-surface-muted px-1 py-0.5 text-xs">
             /data
           </code>{" "}
@@ -53,4 +82,3 @@ export default function RegionPage({ params }: RegionPageProps) {
     </main>
   );
 }
-
